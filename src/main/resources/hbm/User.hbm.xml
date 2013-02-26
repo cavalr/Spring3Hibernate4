@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.blog.cavalr.entity.User"
+           table="blog_user">
+        <id name="userName" type="string">
+            <column name="username" />
+            <generator class="assigned" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" not-null="false" />
+        </property>
+
+        <property name="lastName" type="string">
+            <column name="last_name" not-null="false" />
+        </property>
+
+        <property name="password" type="string">
+            <column name="password" not-null="false" />
+        </property>
+
+        <property name="createdOn" type="java.util.Date">
+            <column name="created_on" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>
