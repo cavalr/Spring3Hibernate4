@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("userService")
 @Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
@@ -29,6 +31,13 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = false)
     public void deleteUser(String userName) {
         User user = userDao.findById(userName);
-        userDao.delete(user);
+        if (user != null) {
+            userDao.delete(user);
+        }
+    }
+
+    @Override
+    public List<User> findUsers(String user) {
+        return userDao.findUsers(user);
     }
 }
